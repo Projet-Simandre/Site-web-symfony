@@ -68,7 +68,11 @@ li {
 .w60 {
     width: 60px;
 }
-
+.border-form{
+    border: 4px solid black !important;
+    background-color: white !important;
+  }
+  
 
 
 .gauge-container>.gauge>.dial {

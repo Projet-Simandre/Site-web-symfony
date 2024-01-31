@@ -15,18 +15,18 @@ class UserType extends AbstractType /* Formulaire de la page de création d'util
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder->add("email", TextType::class, [
-            "label" => "Email",
+            "label" => "Email:",
             "attr" => [
                 "placeholder" => "exemple@exemple.com"
             ]
         ]);
         $builder->add("password", RepeatedType::class, [
-                "label" => "Mot de passe",
+                "label" => "Mot de passe:",
                 'type' => PasswordType::class,
                 'invalid_message' => 'Les mots de passe doivent être identiques.',
                 'required' => true,
-                'first_options'  => ['label' => 'Mot de passe', 'attr' => ["placeholder" => "********"]],
-                'second_options' => ['label' => 'Confirmer le mot de passe', 'attr' => ["placeholder" => "********"]]
+                'first_options'  => ['label' => 'Mot de passe:', 'attr' => ["placeholder" => "********"]],
+                'second_options' => ['label' => 'Confirmer le mot de passe:', 'attr' => ["placeholder" => "********"]]
         ]);
     }
     public function configureOptions(OptionsResolver $resolver): void

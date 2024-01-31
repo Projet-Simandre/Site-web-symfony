@@ -1,15 +1,26 @@
-{% extends "base.html.twig" %} {# formulaire de création de compte #}
+{% extends "base.html.twig" %}
+{# formulaire de création de compte #}
 
 {% block body %}
-	<div class="my-5"></div>
-	<h1 class="text-center pt-5">Créer un compte</h1>
-	<br>
-	<div class="d-flex justify-content-center">
-		{{form_start(form)}}
-		{{form_rest(form)}}
+	<body class="bg-grey">
+		<div class="my-5"></div>
+		<div class="row">
+			<form>
+				<fieldset>
+					<h1 class="text-center">Créer un compte</h1>
+					<br>
+					<div class="d-flex justify-content-center">
+						{{form_start(form)}}
+						
+						{{form_rest(form)}}
 
-		<input type="submit" value="Créer" class="btn btn-success">
+						<input type="submit" value="Créer" class="btn btn-success">
 
-		{{form_end(form)}}
-	</div>
+						{{form_end(form)}}
+					</fieldset>
+				</form>
+				<div class="col-4"></div>
+			</div>
+		</div>
+	</body>
 {% endblock %}
