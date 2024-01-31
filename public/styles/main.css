@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&family=Josefin+Sans&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+.bg-grey {
+    background-color: #DFF6FF !important;
+}
+
+.bg-white {
+    background-color: #FFFFFF !important;
+}
+
+.bg-whigre{
+    background-color: #FFFFFF !important;
+}
+
+li {
+    font-size: 30px;
+}
+
+.s-15{
+    font-size: 15px;
+}
+
+.s-20 {
+    font-size: 20px;
+}
+
+.w-5{
+    width: 5%;
+}
+
+.w-10 {
+    width: 10%;
+}
+
+.w-15{
+    width: 15%;
+}
+
+.w75{
+    width: 75%;
+}
+
+.w100{
+    width: 300px;
+}
+
+.w100lg{
+    width: 100%;
+}
+
+.mt-10 {
+    margin-top: 15%;
+}
+
+.mb-10{
+    margin-bottom: 15%;
+}
+
+.around {
+    display: flex;
+    justify-content: space-around;
+}
+
+.w60 {
+    width: 60px;
+}
+
+
+
+.gauge-container>.gauge>.dial {
+    stroke: #334455;
+    stroke-width: 2;
+}
+
+.gauge-container>.gauge>.value {
+    stroke: rgb(47, 227, 255);
+    stroke-width: 2;
+}
+
+.gauge-container>.gauge>.value-text {
+    fill: rgb(47, 227, 255);
+    font-family: sans, 'sans-serif';
+    font-weight: bold;
+    font-size: 0.6em;
+}
+
+
+@media screen and (max-width:992px) {
+    .none{
+        display: none;
+    }
+    .w100lg{
+        width: 25%;
+    }
+    .m0333 {
+        margin: 0 3rem 3rem 3rem;
+    }
+    .flexres{
+        display: flex;
+        flex-direction: column !important;
+        justify-content: center;
+        align-items: center;
+    }
+    .footer-block {
+        display: flex;
+        flex-direction: column;
+    }
+    .aroundres{
+        display: flex;
+        justify-content: space-around;
+    }
+    .bg-whigre{
+        background-color: #DFF6FF !important;
+    }
+    .w75{
+        width: auto;
+    }
+
+    *, ::after, ::before {
+        max-width: 100vw;
+    }
+}
