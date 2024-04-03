@@ -2,25 +2,22 @@
 {# formulaire de création de compte #}
 
 {% block body %}
-	<body class="bg-grey">
-		<div class="my-5"></div>
-		<div class="row">
-			<form>
-				<fieldset>
-					<h1 class="text-center">Créer un compte</h1>
-					<br>
-					<div class="d-flex justify-content-center">
-						{{form_start(form)}}
-						
-						{{form_rest(form)}}
+{# faire sauté la navbar et le footer #}
+	<div class="my-5"></div>
+	<div class="row">
+		<form>
+			<h1 class="text-center">Créer un compte</h1>
+			<br>
+			<div class="d-flex justify-content-center">
+				{{form_start(form)}}
 
-						<input type="submit" value="Créer" class="btn btn-success">
+				{{form_rest(form)}}
 
-						{{form_end(form)}}
-					</fieldset>
-				</form>
-				<div class="col-4"></div>
-			</div>
+				<input type="submit" value="Créer" class="btn btn-success">
+
+				{{form_end(form)}}
+			</form>
+			<div class="col-4"></div>
 		</div>
-	</body>
+	</div>
 {% endblock %}

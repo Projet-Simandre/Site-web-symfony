@@ -31,7 +31,7 @@ class UserController extends AbstractController /* Pas utiliser car il existe qu
             "form" => $form->createView()
         ]);
     }
-    #[Route('/user/{id}/update', name: 'user_update')]
+    #[Route('/user/update/{id}', name: 'user_update')]
     public function update(Request $request, User $user, UserPasswordHasherInterface $passwordHasher, ManagerRegistry $doctrine): Response
     {
         $form = $this->createForm(UserType::class, $user, [
