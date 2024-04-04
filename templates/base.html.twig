@@ -28,7 +28,7 @@
 						background-repeat: no-repeat;
 						height: 100vh;
 						width: 100vw;
-						overflow: hidden;
+						overflow-x: hidden;
 					}
 				</style>
 			{% else %}
@@ -41,7 +41,7 @@
 						background-repeat: no-repeat;
 						height: 100vh;
 						width: 100vw;
-						overflow: hidden;
+						overflow-x: hidden;
 					}
 				</style>
 			{% endif %}
@@ -74,15 +74,20 @@
 				}
 
 				.bg-grey {
-					background-color: #EEEEEE !important;
+					background-color: #65c5da !important;
 				}
 
 				.text-dark {
 					color: #000000 !important;
 				}
 
-				.coutour-form {
+				.text-white {
+					color: #FFFFFF !important;
+				}
+
+				.contour-form {
 					border: 3px solid #000000;
+					background-color: #FFFFFF;
 					border-radius: 10px;
 				}
 
@@ -110,6 +115,10 @@
 					width: 15%;
 				}
 
+				.w35 {
+					width: 35%;
+				}
+
 				.w75 {
 					width: 75%;
 				}
@@ -120,6 +129,10 @@
 
 				.w100lg {
 					width: 100%;
+				}
+
+				.w50 {
+					width: 50%;
 				}
 
 				.mt-10 {
@@ -217,17 +230,17 @@
 							</b>
 							<b class="w75 d-flex justify-content-between flexres">
 								<li class="nav-item d-flex align-items-center">
-									<a class="nav-link" href="/capteur">Capteur</a>
+									<a class="nav-link text-white" href="/capteur">Capteur</a>
 								</li>
 							</b>
 							<b class="w75 d-flex justify-content-between flexres">
 								<li class="nav-item d-flex align-items-center">
-									<a class="nav-link" href="/carte">Carte</a>
+									<a class="nav-link text-white" href="/carte">Carte</a>
 								</li>
 							</b>
 							<b class="w75 d-flex justify-content-between flexres">
 								<li class="d-flex align-items-center">
-									<a class="nav-link" href="/logout">Déconnexion</a>
+									<a class="nav-link text-white" href="/logout">Déconnexion</a>
 								</li>
 							</b>
 						</ul>
@@ -247,66 +260,17 @@
 			{# footer de la page #}
 			<footer class="bg-white pb-1 bg-grey">
 				<div class="d-flex justify-content-center py-4">
-					<a href="/reseau" class="pe-2 link-offset-2 link-underline link-underline-opacity-0 text-dark"><b>Nos réseaux !</b></a>
-					<a href="/sponsor" class="ps-2 link-offset-2 link-underline link-underline-opacity-0 text-dark"><b>Nos sponsors !</b></a>
+					<a href="/reseau" class="pe-2 link-offset-2 link-underline link-underline-opacity-0 text-white"><b>Nos réseaux</b></a>
+					<a href="/sponsor" class="ps-2 link-offset-2 link-underline link-underline-opacity-0 text-white"><b>Nos sponsors</b></a>
 				</div>
 				<div class="d-flex justify-content-evenly pb-2">
-					<a href="/notfoundforeseen" class="link-offset-2 link-underline link-underline-opacity-0 text-dark"><b>Mentions légales</b></a>
-					<a href="/notfoundforeseen" class="link-offset-2 link-underline link-underline-opacity-0 text-dark"><b>Termes de Vente</b></a>
-					<a href="/notfoundforeseen" class="link-offset-2 link-underline link-underline-opacity-0 text-dark"><b>Politique de confidentialité</b></a>
-					<a href="/contact" class="link-offset-2 link-underline link-underline-opacity-0 text-dark"><b>Nous contacter</b></a>
+					<a href="/notfoundforeseen" class="link-offset-2 link-underline link-underline-opacity-0 text-white"><b>Mentions légales</b></a>
+					<a href="/notfoundforeseen" class="link-offset-2 link-underline link-underline-opacity-0 text-white"><b>Termes de Vente</b></a>
+					<a href="/notfoundforeseen" class="link-offset-2 link-underline link-underline-opacity-0 text-white"><b>Politique de confidentialité</b></a>
+					<a href="/contact" class="link-offset-2 link-underline link-underline-opacity-0 text-white"><b>Nous contacter</b></a>
 				</div>
-				{# <div
-					class="container-fluid d-flex flex-wrap align-items-center justify-content-between footer-block">
-					<!-- réseaux de l'entreprise -->
-
-					<div class="d-flex flex-wrap gap-3 align-items-center justify-content-center m0333">
-						<a href="https://www.instagram.com/" target="_blank">
-							<img src="{{asset('image/insta.png')}}" alt="instagram" class="w60">
-						</a>
-
-						<a href="https://www.github.com/" target="_blank">
-							<img src="{{asset('image/github.png')}}" alt="github" class="w60">
-						</a>
-
-						<a href="https://twitter.com/" target="_blank">
-							<img src="{{asset('image/twitter.png')}}" alt="twitter" class="w60">
-						</a>
-
-						<a href="https://www.youtube.com/" target="_blank">
-							<img src="{{asset('image/youtube.png')}}" alt="youtube" class="w60">
-						</a>
-					</div>
-	
-					<!-- sponsor de l'entreprise -->
-					<div class="d-flex flex-wrap gap-3 align-items-center justify-content-center mx-5 m0333">
-						<a href="https://www.tesla.com/" target="_blank"><img src="{{asset('image/tesla.png')}}" class="w60" alt="sponsor Tesla"></a>
-
-						<a href="https://www.lachainemeteo.com/" target="_blank"><img src="{{asset('image/chaine_météo.png')}}" class="w60" alt="sponsor la chaine météo"></a>
-
-						<a href="https://www.github.com/" target="_blank"><img src="{{asset('image/github.png')}}" class="w60" alt="sponsor github"></a>
-
-						<a href="https://www.paris2024.org/" target="_blank"><img src="{{asset('image/JO.png')}}" class="w60" alt="sponsor JO 2024"></a>
-					</div>
-
-					<div>
-						<p>
-							<a href="./notfoundforeseen" class="link-dark link-underline link-underline-opacity-0">Mentions légales</a>
-						</p>
-						<p>
-							<a href="./notfoundforeseen" class="link-dark link-underline link-underline-opacity-0">Termes de Vente</a>
-						</p>
-						<p>
-							<a href="./notfoundforeseen" class="link-dark link-underline link-underline-opacity-0">Politique de confidentialité</a>
-						</p>
-						<p>
-							<a href="./contact" class="link-dark link-underline link-underline-opacity-0">Nous contacter</a>
-						</p>
-					</div>
-
-
-				</div> #}
-				<p class="mb-0 pt-3 text-center s-15"><b>Copyright 2024 - Simandré</b></p>
+				
+				<p class="mb-0 pt-3 text-center s-15 text-white"><b>Copyright 2024 - Simandré</b></p>
 
 				<script src="./svg-gauge-master/dist/gauge.min.js"></script>
 				<!-- JavaScript pour les jauges globales -->

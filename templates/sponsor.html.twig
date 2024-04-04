@@ -1,0 +1,28 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="d-flex justify-content-center py-5 container-fluid">
+		<div class="contour-form w-50">
+			<h1 class="text-center py-3"><b>Nos sponsors</b></h1>
+			<div class="row d-flex justify-content-center">
+				<div class="col-5-lg pe-2">
+					<a href="https://www.tesla.com/" target="_blank" class="d-flex justify-content-center w-auto"><img src="{{asset('image/tesla.png')}}" class="w35" alt="sponsor Tesla"></a>
+				</div>
+                <div class="col-2-lg"></div>
+				<div class="col-5-lg ps-2">
+					<a href="https://www.lachainemeteo.com/" target="_blank" class="d-flex justify-content-center w-auto"><img src="{{asset('image/chaine_météo.png')}}" class="w35" alt="sponsor la chaine météo"></a>
+				</div>
+			</div>
+			<br>
+			<div class="row pb-1 d-flex justify-content-center">
+				<div class="col-5-lg pe-2">
+					<a href="https://www.github.com/" target="_blank" class="d-flex justify-content-center"><img src="{{asset('image/github.png')}}" class="w35" alt="sponsor github"></a>
+				</div>
+                <div class="col-2-lg"></div>
+				<div class="col-5-lg ps-2">
+					<a href="https://www.paris2024.org/" target="_blank" class="d-flex justify-content-center"><img src="{{asset('image/JO.png')}}" class="w35" alt="sponsor JO 2024"></a>
+				</div>
+			</div>
+		</div>
+	</div>
+{% endblock %}
