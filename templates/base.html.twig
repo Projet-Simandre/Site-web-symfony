@@ -50,17 +50,35 @@
 			<style>
 				@import url('https://fonts.googleapis.com/css2?family=Inter &family=Josefin+Sans&display=swap');
 
+				.bg-classic{
+					background-image: url("{{asset('image/background.png')}}");
+					background-size: cover;
+					background-position: center;
+					background-repeat: no-repeat;
+					height: 100vh;
+					width: 100vw;
+					overflow: hidden;
+				}
+
+				.bg-log{
+					background-image: url("{{asset('image/background_log.png')}}");
+					background-size: cover;
+					background-position: center;
+					background-repeat: no-repeat;
+					height: 100vh;
+					width: 100vw;
+					overflow: hidden;
+				}
 				.bg-white {
 					background-color: #FFFFFF !important;
 				}
 
-				.contour-nav {
-					border: 3px solid #000000;
+				.bg-grey {
+					background-color: #EEEEEE !important;
 				}
 
-				.contour-footer {
-					border-top: 3px solid #000000;
-					border-bottom: 3px solid #000000;
+				.text-dark {
+					color: #000000 !important;
 				}
 
 				.coutour-form {
@@ -180,47 +198,35 @@
 	</head>
 	<body>
 		{# header de la page #}
-		<header class="d-flex justify-content-center">
-			<nav class="navbar navbar-expand-lg bg-white container-lg d-flex justify-content-center mt-5 rounded-pill contour-nav">
-				<div
-					class="container-fluid">
+		<header>
+			<nav class="navbar navbar-expand-lg bg-white d-flex justify-content-center bg-grey">
+				<div class="container-fluid">
 					{# navbar #}
 					<div class="d-flex justify-content-end">
 						<button class="navbar-toggler d-lg-none d-flex justify-content-end" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-							<img class="navbar-toggler-icon" src="{{asset('image/burgur_menu.png')}}" alt="Menu Icon">
+							<img class="navbar-toggler-icon ps-lg-5" src="{{asset('image/burgur_menu.png')}}" alt="Menu Icon">
 						</button>
 					</div>
-					<img class="w-15 rounded-pill none" src="{{asset('image/logo.png')}}" alt="logo">
 					<div class="collapse navbar-collapse" id="navbarNavDropdown">
 						<ul class="navbar-nav w-100 d-flex justify-content-center">
+
 							<b class="w75 d-flex justify-content-between flexres">
-								<li class="nav-item">
-									<a class="nav-link" href="/">Accueil</a>
+								<li class="nav-item d-flex align-items-center">
+									<a class="nav-link" href="/"><img class="w-50 rounded-pill none" src="{{asset('image/logo.png')}}" alt="logo"></a>
 								</li>
 							</b>
 							<b class="w75 d-flex justify-content-between flexres">
-								<li class="nav-item">
+								<li class="nav-item d-flex align-items-center">
 									<a class="nav-link" href="/capteur">Capteur</a>
 								</li>
 							</b>
 							<b class="w75 d-flex justify-content-between flexres">
-								<li class="nav-item">
+								<li class="nav-item d-flex align-items-center">
 									<a class="nav-link" href="/carte">Carte</a>
 								</li>
 							</b>
-							{# <b class="w75 d-flex justify-content-between flexres">
-																							{% if is_granted('ROLE_ADMIN') %}
-																								<li>
-																									<a class="nav-link" href="/logout">Déconnexion</a>
-																								</li>
-																							{% else %}
-																								<li class="nav-item">
-																									<a class="nav-link" href="/user/create">Se connecter</a>
-																								</li>
-																							{% endif %}
-																						</b> #}
 							<b class="w75 d-flex justify-content-between flexres">
-								<li>
+								<li class="d-flex align-items-center">
 									<a class="nav-link" href="/logout">Déconnexion</a>
 								</li>
 							</b>
@@ -239,15 +245,20 @@
 			{% endblock %}
 
 			{# footer de la page #}
-			<footer class="bg-white pb-1 contour-footer">
-				<div
+			<footer class="bg-white pb-1 bg-grey">
+				<div class="d-flex justify-content-center py-4">
+					<a href="/reseau" class="pe-2 link-offset-2 link-underline link-underline-opacity-0 text-dark"><b>Nos réseaux !</b></a>
+					<a href="/sponsor" class="ps-2 link-offset-2 link-underline link-underline-opacity-0 text-dark"><b>Nos sponsors !</b></a>
+				</div>
+				<div class="d-flex justify-content-evenly pb-2">
+					<a href="/notfoundforeseen" class="link-offset-2 link-underline link-underline-opacity-0 text-dark"><b>Mentions légales</b></a>
+					<a href="/notfoundforeseen" class="link-offset-2 link-underline link-underline-opacity-0 text-dark"><b>Termes de Vente</b></a>
+					<a href="/notfoundforeseen" class="link-offset-2 link-underline link-underline-opacity-0 text-dark"><b>Politique de confidentialité</b></a>
+					<a href="/contact" class="link-offset-2 link-underline link-underline-opacity-0 text-dark"><b>Nous contacter</b></a>
+				</div>
+				{# <div
 					class="container-fluid d-flex flex-wrap align-items-center justify-content-between footer-block">
 					<!-- réseaux de l'entreprise -->
-					<div>
-						<a href="/">
-							<img src="{{asset('image/logo.png')}}" alt="logo" class="pb-3" style="width: 240px">
-						</a>
-					</div>
 
 					<div class="d-flex flex-wrap gap-3 align-items-center justify-content-center m0333">
 						<a href="https://www.instagram.com/" target="_blank">
@@ -266,11 +277,7 @@
 							<img src="{{asset('image/youtube.png')}}" alt="youtube" class="w60">
 						</a>
 					</div>
-					<!--  <div class="col vl d-flex justify-content-center none"></div>
-																																																																															            <div class="col-lg"></div> -->
-
-					<div class="vr none mt-3"></div>
-
+	
 					<!-- sponsor de l'entreprise -->
 					<div class="d-flex flex-wrap gap-3 align-items-center justify-content-center mx-5 m0333">
 						<a href="https://www.tesla.com/" target="_blank"><img src="{{asset('image/tesla.png')}}" class="w60" alt="sponsor Tesla"></a>
@@ -298,8 +305,8 @@
 					</div>
 
 
-				</div>
-				<p class="mb-0 pt-3 text-center s-15">Copyright 2024 - Simandré</p>
+				</div> #}
+				<p class="mb-0 pt-3 text-center s-15"><b>Copyright 2024 - Simandré</b></p>
 
 				<script src="./svg-gauge-master/dist/gauge.min.js"></script>
 				<!-- JavaScript pour les jauges globales -->

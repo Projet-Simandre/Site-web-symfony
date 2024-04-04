@@ -1,0 +1,18 @@
+{% extends "base.html.twig" %} {# Page Candidater #}
+{% import "macros/alert.html.twig" as alert %}
+
+{% block title %}
+	{{ parent() }}
+{% endblock %}
+
+{% block body %}
+
+	<div class="mt-5">
+		<h1 class="d-flex justify-content-center mt-5 pt-5">Carte de l'entreprise</h1>
+		{{form_start(form)}}
+		{{form_rest(form)}}
+        <button type="submit" class="btn btn-primary">Enregistrer ma carte</button>
+		{{form_end(form)}}
+	</div>
+
+{% endblock %}
