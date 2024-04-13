@@ -18,11 +18,11 @@ class CardType extends AbstractType
             ->add('objet', TextType::class, [
                 'label' => 'Titre',
                 "attr" => [
-                    "placeholder" => "Lieu de la carte",
+                    "placeholder" => "Lieu du plan",
                 ]
             ])
-            ->add('brochure', FileType::class, [
-                'label' => 'Insérer une carte (fichier PDF)',
+            ->add('map', FileType::class, [
+                'label' => 'Insérer un plan (format PDF ou PNG)',
                 'mapped' => false,
                 'required' => false,
                 'constraints' => [
@@ -31,6 +31,7 @@ class CardType extends AbstractType
                         'mimeTypes' => [
                             'application/pdf',
                             'application/x-pdf',
+                            'image/png',
                         ],
                         'mimeTypesMessage' => 'Mettez un fichier PDF valide',
                     ])

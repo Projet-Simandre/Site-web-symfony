@@ -50,6 +50,13 @@
 			<style>
 				@import url('https://fonts.googleapis.com/css2?family=Inter &family=Josefin+Sans&display=swap');
 
+				main {
+					flex-grow: 1; /* Permet à la partie principale de prendre tout l'espace disponible */
+					display: flex;
+					align-items: center;
+					padding: 7rem
+				}
+
 				.bg-classic{
 					background-image: url("{{asset('image/background.png')}}");
 					background-size: cover;
@@ -170,6 +177,33 @@
 					font-size: 0.6em;
 				}
 
+				.high-temp {
+    				background-color: #d21404; /* Rouge pour les températures élevées */
+					color: #FFFFFF;
+				}
+
+				.medium-high-temp {
+					background-color: #ED7F10; /* Rose pour les températures moyennement élevées */
+				}
+
+				.medium-temp {
+    				background-color: #03c04a; /* Vert pour les températures moyennes */
+					color: #FFFFFF;
+				}
+
+				.low-temp {
+    				background-color: #82eefd; /* Bleu pour les températures basses */
+				}
+
+				.very-low-temp {
+    				background-color: #0492c2; /* Autre couleur pour des températures plus basses */
+				}
+
+				.default-temp {
+    				background-color: #0000ff; /* Bleu par défaut pour les températures très basses */
+					color: #FFFFFF;
+				}
+
 
 				@media screen and(max-width:992px) {
 					.none {
@@ -225,7 +259,7 @@
 
 							<b class="w75 d-flex justify-content-between flexres">
 								<li class="nav-item d-flex align-items-center">
-									<a class="nav-link" href="/"><img class="w-50 rounded-pill none" src="{{asset('image/logo.png')}}" alt="logo"></a>
+									<a class="nav-link" href="/"><img class="w-50 none" src="{{asset('image/logo.png')}}" alt="logo"></a>
 								</li>
 							</b>
 							<b class="w75 d-flex justify-content-between flexres">
@@ -235,7 +269,7 @@
 							</b>
 							<b class="w75 d-flex justify-content-between flexres">
 								<li class="nav-item d-flex align-items-center">
-									<a class="nav-link text-white" href="/carte">Carte</a>
+									<a class="nav-link text-white" href="/plan">Carte</a>
 								</li>
 							</b>
 							<b class="w75 d-flex justify-content-between flexres">

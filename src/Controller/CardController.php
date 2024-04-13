@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class CardController extends AbstractController
 {
-    #[Route('/carte', name: 'carte')]
+    #[Route('/plan', name: 'plan')]
     public function new(Request $request, FileUploader $fileUploader, ManagerRegistry $doctrine): Response
     {
         $card = new Card();
@@ -23,23 +23,23 @@ class CardController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            /** @var UploadedFile $brochureFile */
-            $brochureFile = $form->get('brochure')->getData();
-            if ($brochureFile) {
+            /** @var UploadedFile $mapFile */
+            $mapFile = $form->get('map')->getData();
+            if ($mapFile) {
                 try {
-                    $brochureFileName = $fileUploader->upload($brochureFile);
-                    $card->setBrochureFilename($brochureFileName);
+                    $mapFileName = $fileUploader->upload($mapFile);
+                    $card->setMapFilename($mapFileName);
                 } catch (FileException $e) {
-                    $this->addFlash("danger", "Le carte n'a pas été pris en compte !");
+                    $this->addFlash("danger", "Le plan n'a pas été pris en compte !");
                 }
-                // Move the file to the directory where brochures are stored
+                // Move the file to the directory where maps are stored
             }
 
             // ... persist the $product variable or any other work
             $em = $doctrine->getManager();
             $em->persist($card);
             $em->flush();
-            $this->addFlash("success", "Le carte '{$card->getObjet()}' a été enregistré !");
+            $this->addFlash("success", "Le plan '{$card->getObjet()}' a été enregistré !");
             return $this->redirectToRoute('index');
         }
 

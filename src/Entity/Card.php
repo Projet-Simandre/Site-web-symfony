@@ -18,16 +18,16 @@ class Card
     private ?string $objet = null;
 
     #[ORM\Column]
-    private string $brochureFilename = "";
+    private string $mapFilename = "";
 
-    public function getBrochureFilename(): string
+    public function getMapFilename(): string
     {
-        return $this->brochureFilename;
+        return $this->mapFilename;
     }
 
-    public function setBrochureFilename(string $brochureFilename): self
+    public function setMapFilename(string $mapFilename): self
     {
-        $this->brochureFilename = $brochureFilename;
+        $this->mapFilename = $mapFilename;
 
         return $this;
     }
