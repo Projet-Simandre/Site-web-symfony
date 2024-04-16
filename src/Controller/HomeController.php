@@ -23,24 +23,64 @@ class HomeController extends AbstractController
         $latestUpload = $this->getLatestUpload($em);
 
         $temperature = $moyennes['temperature'];
+        $humidite = $moyennes['humidite'];
+        $qualite = $moyennes['qualite'];
 
         // Initialisez une variable pour stocker la classe CSS de couleur
         $colorClass = '';
+        $temp = 0;
+        $hum = 0;
+        $qual = 0;
 
         // Déterminez la classe CSS en fonction de la température
         if ($temperature >= 25) {
-            $colorClass = 'high-temp';
+            $temp = 5;
         } else if ($temperature >= 21) {
-            $colorClass = 'medium-high-temp';
+            $temp = 4;
         } else if ($temperature >= 10) {
-            $colorClass = 'medium-temp';
+            $temp = 3;
         } else if ($temperature >= 0) {
-            $colorClass = 'low-temp';
+            $temp = 4;
         } else if ($temperature >= -10) {
-            $colorClass = 'very-low-temp';
+            $temp = 5;
         } else {
-            $colorClass = 'default-temp';
+            $temp = 6;
         }
+
+        if ($humidite >= 80) {
+            $hum = 10;
+        } else if ($humidite >= 60) {
+            $hum = 5;
+        } else if ($humidite >= 40) {
+            $hum = 3;
+        } else if ($humidite >= 20) {
+            $hum = 5;
+        } else {
+            $hum = 6;
+        }
+
+        if ($qualite >= 80) {
+            $qual = 6;
+        } else if ($qualite >= 60) {
+            $qual = 5;
+        } else if ($qualite >= 40) {
+            $qual = 5;
+        } else if ($qualite >= 20) {
+            $qual = 3;
+        } else {
+            $qual = 1;
+        }
+
+        if ($temp + $hum + $qual >= 15) {
+            $colorClass = 'high-temp';
+        } else if ($temp + $hum + $qual >= 12) {
+            $colorClass = 'medium-high-temp';
+        } else if ($temp + $hum + $qual >= 7) {
+            $colorClass = 'medium-temp';
+        } else {
+            $colorClass = 'low-temp';
+        }
+
         return $this->render('home/index.html.twig', [
             'moyennes' => $moyennes, 'colorClass' => $colorClass, 'latestUpload' => $latestUpload
         ]);
