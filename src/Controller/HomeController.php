@@ -34,21 +34,23 @@ class HomeController extends AbstractController
 
         // Déterminez la classe CSS en fonction de la température
         if ($temperature >= 25) {
-            $temp = 5;
+            $temp = 10;
         } else if ($temperature >= 21) {
             $temp = 4;
+        } else if ($temperature >= 15) {
+            $temp = 1;
         } else if ($temperature >= 10) {
-            $temp = 3;
-        } else if ($temperature >= 0) {
-            $temp = 4;
-        } else if ($temperature >= -10) {
             $temp = 5;
+        } else if ($temperature >= 0) {
+            $temp = 10;
+        } else if ($temperature >= -10) {
+            $temp = 15;
         } else {
-            $temp = 6;
+            $temp = 15;
         }
 
         if ($humidite >= 80) {
-            $hum = 10;
+            $hum = 15;
         } else if ($humidite >= 60) {
             $hum = 5;
         } else if ($humidite >= 40) {
@@ -60,7 +62,7 @@ class HomeController extends AbstractController
         }
 
         if ($qualite >= 80) {
-            $qual = 6;
+            $qual = 15;
         } else if ($qualite >= 60) {
             $qual = 5;
         } else if ($qualite >= 40) {

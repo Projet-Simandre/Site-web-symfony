@@ -11,8 +11,15 @@ class SensorController extends AbstractController
     #[Route('/capteur', name: 'sensor')]
     public function index(): Response
     {
+        // Récupérer le contenu JSON depuis le fichier
+        $jsonContent = file_get_contents('./values.json');
+
+        // Convertir le JSON en tableau associatif
+        $data = json_decode($jsonContent, true);
+
+        // Passer les données à la vue Twig
         return $this->render('sensor/capteur.html.twig', [
-            'controller_name' => 'SensorController',
+            'items' => $data['items']
         ]);
     }
 }
