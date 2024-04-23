@@ -15,7 +15,7 @@ class HomeController extends AbstractController
     public function index(SerializerInterface $serializer, EntityManagerInterface $em): Response
     {
         // Charger le fichier JSON
-        $jsonContent = file_get_contents('./values.json');
+        $jsonContent = file_get_contents(__DIR__.'/../public/values.json');
         $data = $serializer->decode($jsonContent, 'json');
 
         // Calculer les moyennes

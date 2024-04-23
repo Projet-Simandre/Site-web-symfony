@@ -2,7 +2,7 @@
 
 {% block body %}
 
-    <div class="m-5 p-2 d-flex flex-wrap justify-content-center">
+    <div class="my-5 p-2 d-flex flex-wrap justify-content-center">
         {% set unique_ips = [] %}
         {% for group in items %}
             {% for item in group %}
@@ -10,14 +10,14 @@
                     {% set unique_ips = unique_ips|merge([item.ip]) %}
                     <div class="card m-2" style="width: 18rem;">
                         <div class="card-body">
-                            <h5 class="card-title">Capteur {{ loop.index }}</h5>
+                            <h4 class="card-title">Capteur {{ loop.index }}</h4>
                             {# <p class="card-text">IP: {{ item.ip }}</p> #} {# permet de deboguer #}
                             <ul class="list-group list-group-flush">
                                 {% for reading in group %}
                                     {% if reading.ip == item.ip %}
-                                        <li class="list-group-item">Température: {{ reading.temperature }}</li>
-                                        <li class="list-group-item">Humidité: {{ reading.humidite }}</li>
-                                        <li class="list-group-item">Qualité d'air: {{ reading.qualite }}</li>
+                                        <li class="list-group-item">Température : {{ reading.temperature }} °C</li>
+                                        <li class="list-group-item">Humidité : {{ reading.humidite }} %</li>
+                                        <li class="list-group-item">Qualité d'air : {{ reading.qualite }} PM2,5</li>
                                         <li class="list-group-item">Dernière donnée il y a : {{ reading.temps }}</li>
                                     {% endif %}
                                 {% endfor %}
