@@ -23,13 +23,13 @@ class HomeController extends AbstractController
         $latestUpload = $this->getLatestUpload($em);
 
         $temperature = $moyennes['temperature'];
-        $humidite = $moyennes['humidite'];
+        $pression = $moyennes['pression'];
         $qualite = $moyennes['qualite'];
 
         // Initialisez une variable pour stocker la classe CSS de couleur
         $colorClass = '';
         $temp = 0;
-        $hum = 0;
+        $pre = 0;
         $qual = 0;
 
         // Déterminez la classe CSS en fonction de la température
@@ -49,16 +49,16 @@ class HomeController extends AbstractController
             $temp = 15;
         }
 
-        if ($humidite >= 80) {
-            $hum = 15;
-        } else if ($humidite >= 60) {
-            $hum = 5;
-        } else if ($humidite >= 40) {
-            $hum = 3;
-        } else if ($humidite >= 20) {
-            $hum = 5;
+        if ($pression >= 1300) {
+            $pre = 15;
+        } else if ($pression >= 1100) {
+            $pre = 5;
+        } else if ($pression >= 1000) {
+            $pre = 3;
+        } else if ($pression >= 950) {
+            $pre = 5;
         } else {
-            $hum = 6;
+            $pre = 6;
         }
 
         if ($qualite >= 80) {
@@ -73,11 +73,11 @@ class HomeController extends AbstractController
             $qual = 1;
         }
 
-        if ($temp + $hum + $qual >= 15) {
+        if ($temp + $pre + $qual >= 15) {
             $colorClass = 'high-temp';
-        } else if ($temp + $hum + $qual >= 12) {
+        } else if ($temp + $pre + $qual >= 12) {
             $colorClass = 'medium-high-temp';
-        } else if ($temp + $hum + $qual >= 7) {
+        } else if ($temp + $pre + $qual >= 7) {
             $colorClass = 'medium-temp';
         } else {
             $colorClass = 'low-temp';
@@ -92,21 +92,21 @@ class HomeController extends AbstractController
     private function calculerMoyennes(array $items): array
     {
         $totalTemperature = 0;
-        $totalHumidite = 0;
+        $totalPression = 0;
         $totalQualite = 0;
         $totalItems = count($items) * count($items[0]);
 
         foreach ($items as $item) {
             foreach ($item as $data) {
                 $totalTemperature += $data['temperature'];
-                $totalHumidite += $data['humidite'];
+                $totalPression += $data['pression'];
                 $totalQualite += $data['qualite'];
             }
         }
 
         $moyennes = [
             'temperature' => $totalTemperature / $totalItems,
-            'humidite' => $totalHumidite / $totalItems,
+            'pression' => $totalPression / $totalItems,
             'qualite' => $totalQualite / $totalItems,
         ];
 

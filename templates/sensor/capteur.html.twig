@@ -1,34 +1,34 @@
 {% extends "base.html.twig" %}
 
 {% block body %}
-
     <div class="my-5 p-2 d-flex flex-wrap justify-content-center">
-        {% set unique_ips = [] %}
+        {% set unique_ips = {} %}
         {% for group in items %}
             {% for item in group %}
                 {% if item.ip not in unique_ips %}
-                    {% set unique_ips = unique_ips|merge([item.ip]) %}
-                    <div class="card m-2" style="width: 18rem;">
-                        <div class="card-body">
-                            <h4 class="card-title">Capteur {{ loop.index }}</h4>
-                            {# <p class="card-text">IP: {{ item.ip }}</p> #} {# permet de deboguer #}
-                            <ul class="list-group list-group-flush">
-                                {% for reading in group %}
-                                    {% if reading.ip == item.ip %}
-                                        <li class="list-group-item">Température : {{ reading.temperature }} °C</li>
-                                        <li class="list-group-item">Humidité : {{ reading.humidite }} %</li>
-                                        <li class="list-group-item">Qualité d'air : {{ reading.qualite }} PM2,5</li>
-                                        <li class="list-group-item">Dernière donnée il y a : {{ reading.temps }}</li>
-                                    {% endif %}
-                                {% endfor %}
-                            </ul>
-                        </div>
-                    </div>
+                    {% set unique_ips = unique_ips|merge({(item.ip): item}) %}
+                {% else %}
+                    {% if item.temps > unique_ips[item.ip].temps %}
+                        {% set unique_ips = unique_ips|merge({(item.ip): item}) %}
+                    {% endif %}
                 {% endif %}
             {% endfor %}
         {% endfor %}
-    </div>
 
+        {% for ip, item in unique_ips %}
+            <div class="card m-2" style="width: 18rem;">
+                <div class="card-body">
+                    <h4 class="card-title">Capteur {{ loop.index }}</h4>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">Température : {{ item.temperature }} °C</li>
+                        <li class="list-group-item">Pression : {{ item.pression }} Pa</li>
+                        <li class="list-group-item">Qualité d'air : {{ item.qualite }} PM2,5</li>
+                        <li class="list-group-item">Dernière donnée : {{ item.temps }}</li>
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
 
 {% block javascripts %}
