@@ -17,6 +17,15 @@ class SensorController extends AbstractController
         // Convertir le JSON en tableau associatif
         $data = json_decode($jsonContent, true);
 
+        // Arrondir les valeurs à un chiffre après la virgule
+        foreach ($data['items'] as &$item) {
+            foreach ($item as &$reading) {
+                $reading['temperature'] = round($reading['temperature'], 1);
+                $reading['pression'] = round($reading['pression'], 1);
+                $reading['qualite'] = round($reading['qualite'], 1);
+            }
+        }
+
         // Passer les données à la vue Twig
         return $this->render('sensor/capteur.html.twig', [
             'items' => $data['items']
