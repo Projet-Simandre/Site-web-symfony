@@ -17,6 +17,7 @@ class CardController extends AbstractController
     #[Route('/plan', name: 'plan')]
     public function new(Request $request, FileUploader $fileUploader, ManagerRegistry $doctrine): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $card = new Card();
         $form = $this->createForm(CardType::class, $card);
         $form->handleRequest($request);

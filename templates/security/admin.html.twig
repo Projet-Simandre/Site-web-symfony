@@ -1,20 +1,18 @@
-{% extends "base.html.twig" %} {# connexion en tant que "admin" #}
+{% extends "base.html.twig" %}
+{# connexion en tant que "admin" #}
 
 {% block body %}
 	{% if error %}
 		<p class="alert alert-danger">{{error.messageKey}}</p>
 	{% endif %}
-	<h1 class="d-flex justify-content-center mt-5 pt-5">Connexion</h1>
-	<form method="POST" class="container my-5 pt-5">
-		{# <label for="username">Nom d'utilisateur</label>
-		<input type="text" name="_username" id="username" class="form-control" placeholder="Toto" required/> #}
-
+	<h1 class="d-flex justify-content-center my-5 py-5">Connexion</h1>
+	<form method="POST" class="container bg-white">
 		<label for="email">Adresse email</label>
 		<input type="email" name="_username" id="email" class="form-control" placeholder="exemple.email@exemple.com" required/>
-		
+
 		<label for="password">Mot de passe</label>
 		<input type="password" name="_password" id="password" class="form-control" placeholder="********" required/>
-		
+
 		<button type="submit" class="btn btn-success mt-3">Se connecter</button>
 	</form>
 {% endblock %}

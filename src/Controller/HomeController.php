@@ -14,6 +14,7 @@ class HomeController extends AbstractController
     #[Route('/', name: 'index')]
     public function index(SerializerInterface $serializer, EntityManagerInterface $em): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         // Charger le fichier JSON
         $jsonContent = file_get_contents('./values.json');
         $data = $serializer->decode($jsonContent, 'json');

@@ -16,6 +16,7 @@ class UserController extends AbstractController /* Pas utiliser car il existe qu
     #[Route('/user/create', name: 'user_create')] // Création d'un utilisateur
     public function create(Request $request, UserPasswordHasherInterface $passwordHasher, ManagerRegistry $doctrine): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $user = new User($passwordHasher);
         $form = $this->createForm(UserType::class, $user);
 
@@ -34,6 +35,7 @@ class UserController extends AbstractController /* Pas utiliser car il existe qu
     #[Route('/user/update/{id}', name: 'user_update')]
     public function update(Request $request, User $user, UserPasswordHasherInterface $passwordHasher, ManagerRegistry $doctrine): Response
     {
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $form = $this->createForm(UserType::class, $user, [
             "is_edit" => true
         ]);

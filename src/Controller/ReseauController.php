@@ -9,6 +9,7 @@ class ReseauController extends AbstractController
 {
     #[Route("/reseau", name:"reseau")]
     public function FunctionName(): Response{
+        $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         return $this->render('/reseau.html.twig');
     }
 }
