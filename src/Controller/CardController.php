@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class CardController extends AbstractController
 {
     #[Route('/plan', name: 'plan')]
-    public function new(Request $request, FileUploader $fileUploader, ManagerRegistry $doctrine): Response
+    public function index(Request $request, FileUploader $fileUploader, ManagerRegistry $doctrine): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         $card = new Card();

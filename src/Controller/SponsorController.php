@@ -8,7 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class SponsorController extends AbstractController
 {
     #[Route("/sponsor", name:"sponsor")]
-    public function FunctionName(): Response{
+    public function index(): Response{
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
         return $this->render('/sponsor.html.twig');
     }

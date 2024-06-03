@@ -5,11 +5,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class ForeseenController extends AbstractController
+class ContactController extends AbstractController
 {
-    #[Route("/not-found-foreseen", name:"foreseen-not-found")]
+    #[Route("/contact", name:"contact")]
     public function index(): Response{
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        return $this->render('notFound/notFoundForeseen.html.twig');
+        return $this->render('/contact.html.twig');
     }
 }

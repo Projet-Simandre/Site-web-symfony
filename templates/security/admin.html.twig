@@ -1,18 +1,26 @@
 {% extends "base.html.twig" %}
-{# connexion en tant que "admin" #}
+{# connexion en tant que "utilisateur" #}
 
 {% block body %}
 	{% if error %}
 		<p class="alert alert-danger">{{error.messageKey}}</p>
 	{% endif %}
-	<h1 class="d-flex justify-content-center my-5 py-5">Connexion</h1>
-	<form method="POST" class="container bg-white">
-		<label for="email">Adresse email</label>
-		<input type="email" name="_username" id="email" class="form-control" placeholder="exemple.email@exemple.com" required/>
+	<div class="row pt-5">
+		<div class="col-lg-3"></div>
+		<div class="col-lg-6 py-3 bg-white border border-3 rounded-2 border-info">
+			<h1 class="d-flex justify-content-center pb-5">Connexion</h1>
+			<form method="POST" class="container">
+				<label for="email">Adresse email</label>
+				<input type="email" name="_username" id="email" class="form-control" placeholder="votre.email@domaine.com" required/>
 
-		<label for="password">Mot de passe</label>
-		<input type="password" name="_password" id="password" class="form-control" placeholder="********" required/>
+				<label for="password">Mot de passe</label>
+				<input type="password" name="_password" id="password" class="form-control" placeholder="********" required/>
 
-		<button type="submit" class="btn btn-success mt-3">Se connecter</button>
-	</form>
+				<div class="d-flex justify-content-center pt-3">
+					<button type="submit" class="btn btn-success">Se connecter</button>
+				</div>
+			</form>
+		</div>
+		<div class="col-lg-3"></div>
+	</div>
 {% endblock %}
