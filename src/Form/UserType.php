@@ -14,12 +14,6 @@ class UserType extends AbstractType /* Formulaire de la page de création d'util
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
-        $builder->add("username", TextType::class, [
-            "label" => "Nom d'utilisateur:",
-            "attr" => [
-                "placeholder" => "Toto"
-            ]
-        ]);
         $builder->add("email", TextType::class, [
             "label" => "Email:",
             "attr" => [

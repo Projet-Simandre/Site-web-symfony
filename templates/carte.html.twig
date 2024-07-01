@@ -1,12 +1,22 @@
 {% extends "base.html.twig" %}
+{% import "macro/macro.html.twig" as alert %}
 {% form_theme form 'bootstrap_5_layout.html.twig' %}
 
 {% block body %}
 
+	{% for label, messages in app.flashes %}
+		{# Message flash #}
+		{% for msg in messages %}
+			{{ alert.alert(msg, label) }}
+		{% endfor %}
+	{% endfor %}
+
 	<div class="m-5 p-2 d-flex justify-content-center">
 		<div class="d-flex justify-content-center">
 			{{form_start(form)}}
-			<h1 class="pt-5"><b>Plan de l'entreprise</b></h1>
+			<h1 class="pt-5">
+				<b>Plan de l'entreprise</b>
+			</h1>
 			{{form_rest(form)}}
 			<button type="submit" class="btn btn-primary">Enregistrer mon plan</button>
 			{{form_end(form)}}

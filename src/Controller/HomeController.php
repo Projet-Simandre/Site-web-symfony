@@ -84,7 +84,7 @@ class HomeController extends AbstractController
             $colorClass = 'low-temp';
         }
 
-        return $this->render('home/index.html.twig', [
+        return $this->render('/index.html.twig', [
             'moyennes' => $moyennes, 'colorClass' => $colorClass, 'latestUpload' => $latestUpload
         ]);
     }

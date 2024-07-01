@@ -2,25 +2,25 @@
 
 {% block body %}
     <div class="my-5 p-2 d-flex flex-wrap justify-content-center">
-        {% set unique_ips = {} %}
+        {% set unique_ips = {} %} {# Tableau associatif pour stocker les données uniques #}
         {% for group in items %}
-            {% for item in group %}
+            {% for item in group %} {# Parcours des données #}
                 {% if item.ip not in unique_ips %}
-                    {% set unique_ips = unique_ips|merge({(item.ip): item}) %}
+                    {% set unique_ips = unique_ips|merge({(item.ip): item}) %} {# Stockage des données uniques #}
                 {% else %}
                     {% if item.temps > unique_ips[item.ip].temps %}
-                        {% set unique_ips = unique_ips|merge({(item.ip): item}) %}
+                        {% set unique_ips = unique_ips|merge({(item.ip): item}) %} {# Mise à jour des données #}
                     {% endif %}
                 {% endif %}
             {% endfor %}
         {% endfor %}
 
-        {% for ip, item in unique_ips %}
+        {% for ip, item in unique_ips %} {# Parcours des données uniques #}
             <div class="card m-2" style="width: 18rem;">
                 <div class="card-body">
-                    <h4 class="card-title">Capteur {{ loop.index }}</h4>
+                    <h4 class="card-title">Capteur {{ loop.index }}</h4> {# Numéro du capteur #}
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Température : {{ item.temperature }} °C</li>
+                        <li class="list-group-item">Température : {{ item.temperature }} °C</li> {# Données du capteur #}
                         <li class="list-group-item">Pression : {{ item.pression }} hPa</li>
                         <li class="list-group-item">Qualité d'air : {{ item.qualite }} PM2,5</li>
                         <li class="list-group-item">Dernière donnée : {{ item.temps }}</li>

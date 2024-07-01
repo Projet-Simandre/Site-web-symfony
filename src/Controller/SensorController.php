@@ -28,7 +28,7 @@ class SensorController extends AbstractController
         }
 
         // Passer les données à la vue Twig
-        return $this->render('sensor/capteur.html.twig', [
+        return $this->render('/capteur.html.twig', [
             'items' => $data['items']
         ]);
     }

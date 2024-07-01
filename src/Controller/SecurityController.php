@@ -12,7 +12,7 @@ class SecurityController extends AbstractController // SecurityController.php
     public function admin(AuthenticationUtils $Utils)
     {
         $error = $Utils->getLastAuthenticationError();
-        return $this->render('security/admin.html.twig', ['error' => $error]);
+        return $this->render('/admin.html.twig', ['error' => $error]);
     }
 
     #[Route("/logout", name: "logout")]

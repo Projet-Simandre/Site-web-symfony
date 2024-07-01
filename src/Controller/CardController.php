@@ -24,7 +24,7 @@ class CardController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
 
-            /** @var UploadedFile $mapFile */
+            /** @var UploadedFile $mapFile */ // On récupère le fichier
             $mapFile = $form->get('map')->getData();
             if ($mapFile) {
                 try {
@@ -33,10 +33,8 @@ class CardController extends AbstractController
                 } catch (FileException $e) {
                     $this->addFlash("danger", "Le plan n'a pas été pris en compte !");
                 }
-                // Move the file to the directory where maps are stored
             }
 
-            // ... persist the $product variable or any other work
             $em = $doctrine->getManager();
             $em->persist($card);
             $em->flush();
@@ -44,7 +42,7 @@ class CardController extends AbstractController
             return $this->redirectToRoute('index');
         }
 
-        return $this->render('card/carte.html.twig', [
+        return $this->render('/carte.html.twig', [
             "form" => $form->createView(),
             "type" => "create",
         ]);

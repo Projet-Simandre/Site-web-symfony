@@ -11,7 +11,7 @@ use App\Entity\User;
 use App\Form\UserType;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 
-class UserController extends AbstractController /* Pas utiliser car il existe que 1 seul admin */
+class UserController extends AbstractController
 {
     #[Route('/user/create', name: 'user_create')] // Création d'un utilisateur
     public function create(Request $request, UserPasswordHasherInterface $passwordHasher, ManagerRegistry $doctrine): Response
@@ -49,7 +49,7 @@ class UserController extends AbstractController /* Pas utiliser car il existe qu
 
             return $this->redirectToRoute('home');
         }
-        return $this->render("user/form.html.twig", [
+        return $this->render("/form.html.twig", [
             "form" => $form->createView()
         ]);
     }
