@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class CardController extends AbstractController
+class MapController extends AbstractController
 {
     #[Route('/plan', name: 'plan')]
     public function index(Request $request, FileUploader $fileUploader, ManagerRegistry $doctrine): Response

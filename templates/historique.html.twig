@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+	<div class="container py-5">
+        <h2>Tableau de Données</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Temperature</th>
+                    <th>Pression</th>
+                    <th>Qualité</th>
+                    <th>Temps</th>
+                    <th>IP</th>
+                    <th>MAC</th>
+                </tr>
+            </thead>
+            <tbody id="table-body">
+                <!-- Les données seront ajoutées ici dynamiquement -->
+                <script src="/historique.js"></script>
+            </tbody>
+        </table>
+    </div> 
+{% endblock %}
