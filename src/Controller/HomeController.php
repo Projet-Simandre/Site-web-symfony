@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Card;
+use App\Entity\Map;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -116,7 +116,7 @@ class HomeController extends AbstractController
 
     public function getLatestUpload(EntityManagerInterface $em)
     {
-        $repository = $em->getRepository(Card::class);
+        $repository = $em->getRepository(Map::class);
         $latestUpload = $repository->findOneBy([], ['id' => 'DESC']);
 
         return $latestUpload;

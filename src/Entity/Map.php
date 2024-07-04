@@ -7,7 +7,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity]
-class Card
+class Map
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]

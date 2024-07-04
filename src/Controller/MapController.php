@@ -1,8 +1,8 @@
 <?php
 namespace App\Controller;
 
-use App\Entity\Card;
-use App\Form\CardType;
+use App\Entity\Map;
+use App\Form\MapType;
 use App\Service\FileUploader;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -18,8 +18,8 @@ class MapController extends AbstractController
     public function index(Request $request, FileUploader $fileUploader, ManagerRegistry $doctrine): Response
     {
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        $card = new Card();
-        $form = $this->createForm(CardType::class, $card);
+        $map = new Map();
+        $form = $this->createForm(MapType::class, $map);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -29,20 +29,20 @@ class MapController extends AbstractController
             if ($mapFile) {
                 try {
                     $mapFileName = $fileUploader->upload($mapFile);
-                    $card->setMapFilename($mapFileName);
+                    $map->setMapFilename($mapFileName);
                 } catch (FileException $e) {
                     $this->addFlash("danger", "Le plan n'a pas été pris en compte !");
                 }
             }
 
             $em = $doctrine->getManager();
-            $em->persist($card);
+            $em->persist($map);
             $em->flush();
-            $this->addFlash("success", "Le plan '{$card->getObjet()}' a été enregistré !");
+            $this->addFlash("success", "Le plan '{$map->getObjet()}' a été enregistré !");
             return $this->redirectToRoute('index');
         }
 
-        return $this->render('/carte.html.twig', [
+        return $this->render('/map.html.twig', [
             "form" => $form->createView(),
             "type" => "create",
         ]);

@@ -5,11 +5,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-class BoutiqueController extends AbstractController
+class HistoricController extends AbstractController
 {
-    #[Route("/shop", name:"boutique")]
+    #[Route("/historique", name:"historique")]
     public function index(): Response{
         $this->denyAccessUnlessGranted('IS_AUTHENTICATED_FULLY');
-        return $this->render('/shop.html.twig');
+        return $this->render('/historic.html.twig');
     }
 }
