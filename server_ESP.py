@@ -85,6 +85,7 @@ def recuperer_infos():
             listIp.append(ip)
 
         # Si la liste des derniers clients contient 3 éléments ou que le compteur est supérieur ou égal à 10
+        # Soit il attend qu'il y a ait 3 clients, soit il attend 10 itérations
         if len(lastClients) == 4 or count >= 10:
             # On ajoute itteration dans Body
             Body.append(itteration)
@@ -129,6 +130,7 @@ def get_wifi_ip():
 if __name__ == '__main__':
     local_ip = get_wifi_ip()  # Obtenir l'adresse IP de la carte réseau sans fil Wi-Fi
     if local_ip:
+        print("Quekquye csie")
         app.run(host=local_ip, port=8080)
     else:
         print("Impossible de trouver l'adresse IP de la carte réseau sans fil Wi-Fi")
